@@ -38,7 +38,6 @@ const renderAvatar = (infoAvatar, index) => {
         renderList(listAvatar)
     })
 
-
     li.appendChild(firstLine)
     li.appendChild(secondLine)
     li.appendChild(thirdLine)
@@ -86,30 +85,24 @@ enviar.addEventListener('click', () => {
     renderList(listAvatar)
 })
 
-const URL_API = 'https://js-ceciliaramos-default-rtdb.firebaseio.com/'
+const URL_API = 'https://js-ceciliaramos-default-rtdb.firebaseio.com/.json'
+const contentList = document.querySelector('#content-list')
 
-// then/catch
 
-// const response = fetch('https://js-ceciliaramos-default-rtdb.firebaseio.com/', {
-//     method: 'GET'
-// }).then((response) => response.json())
-// .then ((json) => console.log(json))
-// .catch((error) => {
-//     console.log(error)
-// })
-
-// Async / await
-
-const getInfo = async() => {
+const getInfo = async(url) => {
     try {
         // codigo que se ejecutara por default
-        const response = await fetch(URL_API)
+        const response = await fetch (url, {
+            method: 'GET'
+        })
         const parsed = await response.json()
-        console.log(parsed)
+        renderList(parsed.results)
     } catch (error) {
         //codigo a ejecutarse cuando hay un error
         console.error(error)
     }
 }
 
-getInfo()
+getInfo(URL_API)
+
+const URL_FIREBASE = 'https://js-ceciliaramos-default-rtdb.firebaseio.com/.json'
