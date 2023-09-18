@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="avatar__list">
+
+        <form id="createAvatar" class="createAvatar">
+            <fieldset>
+                <legend>Crea un personaje</legend>
+                <div class="mb-3">
+                    <label class="form-label">Avatar</label>
+                    <input
+                    type="url"
+                    id="avatar"
+            class="form-control"
+            placeholder="URL"
+            />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input
+            type="text"
+            id="name"
+            class="form-control"
+            placeholder="Ingresa tu nombre"
+            />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Apellido</label>
+            <input
+            type="text"
+            id="lastName"
+            class="form-control"
+            placeholder="Ingresa tu apellido"
+            />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fecha de nacimiento</label>
+            <input
+            type="date"
+            id="birthday"
+            class="form-control"
+            placeholder="¿Cuándo nació?"
+            />
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Genero</label><br />
+            <div class="form-check form-check-inline">
+                <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="gender"
+                value="male"
+                checked
+                />
+                <label class="form-check-label">Masculino</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="gender"
+                value="female"
+                />
+                <label class="form-check-label">Femenino</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="gender"
+                value="other"
+                />
+                <label class="form-check-label">Otro</label>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">País</label>
+            <select id="country" class="form-select" aria-label="Elige un país">
+                <option selected>Nacionalidad</option>
+                <option value="Mexico">México</option>
+                <option value="Estados Unidos">EU</option>
+                <option value="España">España</option>
+                <option value="Japon">Japón</option>
+                <option value="Costa Rica">Costa Rica</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <input
+            type="text"
+            id="description"
+            class="form-control"
+            placeholder="Describe al personaje"
+            />
+        </div>
+        <div class="mb-12">
+            <button id="add-person" type="button" class="btn btn-primary">
+                Enviar
+            </button>
+        </div>
+    </fieldset>
+</form>
+
+<div class="col avatar__container">
+    <legend>Avatares</legend>
+   <div class="avatars__list">
+    <ul class="mb3 no-bullets" id="list-avatar">
+        <!-- <li><span>Cecilia Ramos</span>
+            <button type="button" class="btn btn-light">Eliminar</button>
+        </li> -->
+    </ul>
+   </div>
+</div>
+</div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
