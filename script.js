@@ -1,4 +1,4 @@
-// const form = document.querySelector('#createAvatar').reset()
+// const createAvatar = document.querySelector('#createAvatar')
 const enviar = document.querySelector('#add-person')
 const container = document.querySelector('#list-avatar')
 const listAvatar = []
@@ -85,24 +85,31 @@ enviar.addEventListener('click', () => {
     renderList(listAvatar)
 })
 
-const URL_API = 'https://js-ceciliaramos-default-rtdb.firebaseio.com/.json'
-const contentList = document.querySelector('#content-list')
-
+const URL_FIREBASE = 'https://js-ceciliaramos-default-rtdb.firebaseio.com/.json'
+// const contentList = document.querySelector('#content-list')
 
 const getInfo = async(url) => {
     try {
-        // codigo que se ejecutara por default
         const response = await fetch (url, {
             method: 'GET'
         })
         const parsed = await response.json()
-        renderList(parsed.results)
+        renderList(parsed.listAvatar)
     } catch (error) {
-        //codigo a ejecutarse cuando hay un error
         console.error(error)
     }
 }
 
-getInfo(URL_API)
+getInfo(URL_FIREBASE)
 
-const URL_FIREBASE = 'https://js-ceciliaramos-default-rtdb.firebaseio.com/.json'
+console.log(JSON.stringify(listAvatar))
+
+const postAvatar = async() => {
+    const response = await fetch(URL_FIREBASE, {
+        method: 'POST',
+        headers: {'Content-type': 'application/json;charset=UTF-8'},
+        body: JSON.stringify(listAvatar)
+    })
+}
+
+postAvatar()
