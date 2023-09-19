@@ -1,6 +1,8 @@
 // const createAvatar = document.querySelector('#createAvatar')
 const enviar = document.querySelector('#add-person')
 const container = document.querySelector('#list-avatar')
+
+// Esta variable sería diferente, tenemos que llamar con un GET la base de datos de Firebase
 const listAvatar = []
 
 const renderAvatar = (infoAvatar, index) => {
@@ -10,6 +12,7 @@ const renderAvatar = (infoAvatar, index) => {
     const thirdLine = document.createElement('span')
     const fourthLine = document.createElement('span')
     const button_delete = document.createElement('button')
+    const button_edit = document.createElement('button')
     const image = `AVATAR: ${infoAvatar.avatar}`
     const name = `NOMBRE: ${infoAvatar.name} APELLIDO: ${infoAvatar.lastName}`
     const firstData =  `CUMPLEAÑOS: ${infoAvatar.birthday} GENERO: ${infoAvatar.gender}`
@@ -23,9 +26,12 @@ const renderAvatar = (infoAvatar, index) => {
     secondLine.textContent = name
     thirdLine.textContent = firstData
     fourthLine.textContent = secondData
-    button_delete.className = 'btn btn-success m-1'
+    button_delete.className = 'btn btn-danger m-1'
     button_delete.dataset.avatarID = index
     button_delete.textContent = 'Eliminar'
+    button_edit.className = 'btn btn-success m-1'
+    button_edit.dataset.avatarID = index
+    button_edit.textContent = 'Editar'
 
 
     button_delete.addEventListener('click', (event) => {
@@ -43,6 +49,7 @@ const renderAvatar = (infoAvatar, index) => {
     li.appendChild(thirdLine)
     li.appendChild(fourthLine)
     li.appendChild(button_delete)
+    li.appendChild(button_edit)
     container.appendChild(li)
 
 }
@@ -80,29 +87,15 @@ enviar.addEventListener('click', () => {
     };
 
     listAvatar.push(avatar)
+    //Este tiene que cambiar a un post de la base de datos de firebase
     
+    postAvatar()
     cleanList()
     renderList(listAvatar)
 })
 
 const URL_FIREBASE = 'https://js-ceciliaramos-default-rtdb.firebaseio.com/.json'
-// const contentList = document.querySelector('#content-list')
-
-const getInfo = async(url) => {
-    try {
-        const response = await fetch (url, {
-            method: 'GET'
-        })
-        const parsed = await response.json()
-        renderList(parsed.listAvatar)
-    } catch (error) {
-        console.error(error)
-    }
-}
-
-getInfo(URL_FIREBASE)
-
-console.log(JSON.stringify(listAvatar))
+const contentList = document.querySelector('#content-list')
 
 const postAvatar = async() => {
     const response = await fetch(URL_FIREBASE, {
@@ -112,4 +105,33 @@ const postAvatar = async() => {
     })
 }
 
-postAvatar()
+
+const getInfo = async() => {
+    try{
+        const response = await fetch(URL_FIREBASE)
+        console.log(response)
+        if(response.status !== 201){
+            const parsed = await response.json()
+            console.log(parsed)
+        }
+    } catch (error){
+        console.error(error)
+    }
+}
+
+getInfo(URL_FIREBASE)
+
+const getInfoApi = async() => {
+    try {
+        const response = await fetch (URL_FIREBASE, {
+            method: 'GET'
+        })
+        const parsed = await response.json()
+        renderList(parsed.listAvatar)
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+
+console.log(JSON.stringify(listAvatar))

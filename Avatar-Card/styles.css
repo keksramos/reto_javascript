@@ -1,0 +1,66 @@
+.avatarCard__container{
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 500px;
+    color: black;
+    background-color: whitesmoke;
+    border-radius: 15px;
+}
+
+.avatarImage__container{
+    display: flex;
+    justify-content: left;
+    height: 220px;
+    width: 150px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-image: url("http://images4.wikia.nocookie.net/__cb20100911101238/bigbangtheory/images/3/31/Penny.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.avatarDescription__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    border: 1px solid black;
+}
+
+.avatarFullName__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* margin: 3px; */
+}
+
+.avatarDescription__container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+
+.description__Titles{
+    font-weight: bold;
+}
+/* 
+.avatarCard__container{
+    border-color: black;
+    border-radius: 10px;
+}
+
+.avatarFullName__container{
+    display: flex;
+    flex-direction: row;
+}
+
+.fullName__title{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.avatarName__info{
+    display: flex;
+} */

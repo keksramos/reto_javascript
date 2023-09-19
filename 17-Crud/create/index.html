@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1>Edit Element</h1>
+    <div class="avatar__list">
+
+        <form id="createAvatar" class="createAvatar">
+            <fieldset>
+                <legend>Crea un personaje</legend>
+                
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input
+            type="text"
+            id="name"
+            class="form-control"
+            placeholder="Nombre"
+            />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Apellido</label>
+            <input
+            type="text"
+            id="lastName"
+            class="form-control"
+            placeholder="Apellido"
+            />
+        </div>
+        
+        <div class="mb-12">
+            <button id="add-person" type="button" class="btn btn-primary">
+                Enviar
+            </button>
+        </div>
+    </fieldset>
+</form>
+
+<div class="col avatar__container">
+    <legend>Avatares</legend>
+   <div class="avatars__list">
+    <ul class="mb3 no-bullets" id="list-avatar">
+
+        </ul>
+    </ul>
+   </div>
+</div>
+
+
+</div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+.avatar__list{
+    display: flex;
+}
+
+.createAvatar {
+    margin: 10px;
+    width: 350px;
+}
+
+#list-avatar {
+    display: flex;
+    flex-direction: column;
+    background: #3c3e44;
+    color: white;
+    width: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.avatars__card{
+    border-color: white;
+    border: 2px;
+    border-radius: 3px;
+}
+
+.info {
+    padding: 20px;
+}
+
+body {
+    background: #272b33;
+    height: 100vh;
+}
+
+#list-person {
+    display: grid;
+}
+
+.no-bullets {
+    list-style-type: none;
+}
